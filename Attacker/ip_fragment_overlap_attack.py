@@ -74,7 +74,10 @@ def send_proper_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fra
             if not pcap_out:
                 send(final_frag_pkt, verbose=0) 
     if pcap_out:
-        wrpcap(pcap_out, out_pkts) # Write the generated fragments to the file held in pcap_out
+        if out_pkts:
+            wrpcap(pcap_out, out_pkts) # Write the generated fragments to the file held in pcap_out
+        else:
+            print("[!] Payload smaller than fragment size. No fragments were generated.") # if its empty, that means no fragments were appended to the out_pkts list since the fragsize is larger than the payload (Caught by Line 58 block)
 
     return out_pkts
 
@@ -114,7 +117,11 @@ def send_final_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_i
             if not pcap_out:
                 send(final_frag_pkt, verbose=0)
     if pcap_out:
-        wrpcap(pcap_out, out_pkts)
+        if out_pkts:
+            wrpcap(pcap_out, out_pkts) # Write the generated fragments to the file held in pcap_out
+        else:
+            print("[!] Payload smaller than fragment size. No fragments were generated.")
+
 
     return out_pkts
     
@@ -159,7 +166,11 @@ def send_multiple_overlapping_fragments(dst, count, payload, proto=17, ttl=64, i
             if not pcap_out:
                 send(final_frag_pkt, verbose=0)
     if pcap_out:
-        wrpcap(pcap_out, out_pkts)
+        if out_pkts:
+            wrpcap(pcap_out, out_pkts) # Write the generated fragments to the file held in pcap_out
+        else:
+            print("[!] Payload smaller than fragment size. No fragments were generated.")
+
 
     return out_pkts
 

