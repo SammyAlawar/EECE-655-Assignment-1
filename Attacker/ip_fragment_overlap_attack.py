@@ -167,10 +167,12 @@ if __name__ == "__main__":
     parser = build_cli()
     args = parser.parse_args()
 
-    # Show help if user didn't provide any arguments
+    # Show help if user didn't provide any arguments 
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(0)
+    # Chat-GPT added the above if block
+    
     if args.pcap_out:
         print(f"[+] PCAP output requested: {args.pcap_out} (no packets will be sent on-wire)")
         
@@ -201,5 +203,5 @@ if __name__ == "__main__":
         print("IP datagrams sent:")
         for packet in packets:
             ip_layer = packet.getlayer(IP)
-            ip_id = ip_layer.id if ip_layer is not None else "unknown" #This and the below line were GPT generated
+            ip_id = ip_layer.id if ip_layer is not None else "unknown" #This and the below line were Chat-GPT generated
             print(f"{packet.summary()}    IP ID: {ip_id}")
