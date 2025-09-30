@@ -78,7 +78,7 @@ def send_proper_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fra
 
     return out_pkts
 
-def send_final_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fragsize=8, pcap_out=None):
+def send_final_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fragsize=16, pcap_out=None):
     if isinstance(payload, str):
         payload = payload.encode("utf-8")
     if count < 1:
@@ -118,7 +118,7 @@ def send_final_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_i
 
     return out_pkts
     
-def send_multiple_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fragsize=8, pcap_out=None): 
+def send_multiple_overlapping_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fragsize=16, pcap_out=None): 
     if isinstance(payload, str):
         payload = payload.encode("utf-8")
     if count < 1:
