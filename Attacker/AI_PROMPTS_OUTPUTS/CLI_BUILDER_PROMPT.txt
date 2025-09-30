@@ -1,0 +1,28 @@
+ME: please write me a cli that includes these arguments: dst,count, payload, proto, ttl,id (For IP), 
+-f and --fragment to specify fragmenting the packet, and fragsize (TO specify the size of the fragment)
+
+GPT OUTPUT:
+import argparse
+import sys
+from scapy.all import IP, UDP, Raw, send, wrpcap
+
+def build_cli():
+    p = argparse.ArgumentParser(description="TCP fragment overlap attack")
+    p.add_argument("--dst", required=True, help="Victim IP")
+    p.add_argument("--count", type=int, required=False, default=5, help="Number of packets to send")
+    p.add_argument("--payload", default="TEST", required = False, help="Payload of IP packet")
+    p.add_argument("--proto", type=int, default=17, help="IP protocol number to set in the IP header (default 17)")
+    p.add_argument("--ttl", type=int, default=64, help="IP TTL")
+    p.add_argument("--id", type=lambda x: int(x, 0), default=0x7777, help="Base IP Identification for fragmentation")
+    p.add_argument("-f", "--fragment", action="store_true", help="If set, send proper fragments")
+    p.add_argument("--fragsize", type=int, default = 16, help="Payload size of each fragment")
+    return p
+
+if __name__ == "__main__":
+    parser = build_cli()
+    args = parser.parse_args()
+
+END OF OUTPUT
+
+
+###PLEASE NOTE THAT I PERSONALLY ADDED THE REST OF THE ARGUMENTS AFTER LEARNING THE argparse SYNTAX###

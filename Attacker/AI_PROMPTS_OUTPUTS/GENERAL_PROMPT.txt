@@ -1,0 +1,7 @@
+For this project, I used GPT mainly as a coding assistant. I had an extended conversation with it to check for syntax issues, 
+logic mistakes, and edge cases in my code. This helped me refine my code and gain a deep understanding of Scapy, as well
+as pcap.
+
+I didn't simply copy paste the code (other than the CLI). Instead, I wrote the core functionality and skeleton
+of the code, while GPT acted as a tutor to guide me through Scapy syntax and verify my logic.
+The overall structure and architecture were my own design.

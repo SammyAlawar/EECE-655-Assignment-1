@@ -1,0 +1,27 @@
+ME: please write me a short udp server on port 9999 that recevies and prints data it receives
+
+GPT OUTPUT:
+Here’s a minimal Python UDP server that listens on port 9999, receives data, and prints it:
+
+# udp_server.py
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.bind(("0.0.0.0", 9999))    # choose a port you will send to
+print("listening UDP on port 9999")
+while True:
+    data, addr = s.recvfrom(4096)
+    print("got", len(data), "bytes from", addr, data)
+How it works:
+
+Binds a UDP socket to 0.0.0.0:9999 (listens on all interfaces).
+
+Waits for incoming datagrams.
+
+Prints the sender’s address and the decoded data.
+
+👉 Run it with:
+
+python3 udp_server.py
+
+Do you want me to also make a client script so you can send test messages to your server?

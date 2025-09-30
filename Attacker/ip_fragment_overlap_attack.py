@@ -201,5 +201,5 @@ if __name__ == "__main__":
         print("IP datagrams sent:")
         for packet in packets:
             ip_layer = packet.getlayer(IP)
-            ip_id = ip_layer.id if ip_layer is not None else "unknown"
+            ip_id = ip_layer.id if ip_layer is not None else "unknown" #This and the below line were GPT generated
             print(f"{packet.summary()}    IP ID: {ip_id}")
