@@ -40,6 +40,12 @@ It is intended for **controlled lab use** (testing detectors, studying reassembl
 * Optional: Wireshark/tcpdump for inspection
 
 ---
+## Network setup (lab environment)
+
+Attacker: Linux Virtual machine (required for Scapy + raw sockets).
+Victim: Linux Virtual machine running the UDP server (listening on port 9999).
+Both machines must be on the same subnet/LAN
+
 
 ## Quick usage
 

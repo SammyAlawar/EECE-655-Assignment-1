@@ -22,7 +22,13 @@ UDP server running on victim machine
 
 Optional: Wireshark/tcpdump for inspection
 
-Quick usage
+# Network setup (lab environment)
+
+Attacker: Linux Virtual machine (required for Scapy + raw sockets).
+Victim: Linux Virtual machine running the UDP server (listening on port 9999).
+Both machines must be on the same subnet/LAN
+
+
 # Send non-fragmented UDP datagrams
 
 sudo ./ip_fragment_overlap_attack.py --dst [Victim IP] --payload "Testing raw UDP/IP Datagram" --count 3
