@@ -65,9 +65,11 @@ sudo ./ip_fragment_overlap_attack.py --dst 192.168.19.174 --multipleoverlap -f -
 
 --help / -h: Show help message
 
-Run a simple UDP receiver on the target VM:
 
-# udp_server.py
+
+# Run a simple UDP receiver on the target VM:
+
+udp_server.py
 
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
