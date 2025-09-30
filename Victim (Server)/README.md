@@ -22,7 +22,6 @@ This repository provides tools and examples to implement and test IPv4 fragmenta
 ## Repository contents (short)
 
 * `udp_echo.py` — simple UDP echo server / listener used on the victim VM. Start this to verify whether reassembled UDP datagrams reach the application.
-* `udp_echo` — (executable / helper; same purpose as `udp_echo.py`)
 * `detect_overlap_verbose.py` — verbose fragment detector (uses Scapy).
 
   * Prints one line per fragment (start/end/frag_off/MF/etc.)
@@ -103,7 +102,7 @@ Fields explained:
 * **If `udp_echo` receives nothing**, likely reasons:
 
   * fragments had a gap (off-by-8) or ordering issue → kernel rejects reassembly
-  * UDP checksum mismatch after reassembly → kernel drops packet
+  * UDP detects overlap after reassembly → kernel drops packet
   * final fragment missing or malformed (first fragment must contain UDP header)
 
 ---
