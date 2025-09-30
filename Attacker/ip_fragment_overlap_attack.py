@@ -10,7 +10,7 @@ def build_cli():
     p.add_argument("--dst", required=True, help="Victim IP")
     p.add_argument("--count", type=int, required=False, default=5, help="Number of packets to send")
     p.add_argument("--payload", default="TEST", required = False, help="Payload of IP packet")
-    p.add_argument("--proto", type=int, default=17, help="IP protocol number to set in the IP header (default 7)")
+    p.add_argument("--proto", type=int, default=17, help="IP protocol number to set in the IP header (default 17)")
     p.add_argument("--ttl", type=int, default=64, help="IP TTL")
     p.add_argument("--id", type=lambda x: int(x, 0), default=0x7777, help="Base IP Identification for fragmentation")
     p.add_argument("-f", "--fragment", action="store_true", help="If set, send proper fragments")

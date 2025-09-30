@@ -9,13 +9,16 @@ split a UDP datagram into proper (non-overlapping) IPv4 fragments, or
 
 craft overlapping fragments (final-fragment overlap or continuous multiple overlaps).
 
-Requirements
+
+# Requirements:
 
 Python 3
 
 Scapy (pip3 install scapy)
 
 sudo / root privileges required to send raw packets
+
+UDP server running on victim machine
 
 Optional: Wireshark/tcpdump for inspection
 
