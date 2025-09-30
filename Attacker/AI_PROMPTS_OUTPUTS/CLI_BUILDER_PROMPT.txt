@@ -1,7 +1,7 @@
 ME: please write me a cli that includes these arguments: dst,count, payload, proto, ttl,id (For IP), 
 -f and --fragment to specify fragmenting the packet, and fragsize (TO specify the size of the fragment)
 
-GPT OUTPUT:
+Chat-GPT OUTPUT:
 import argparse
 import sys
 from scapy.all import IP, UDP, Raw, send, wrpcap

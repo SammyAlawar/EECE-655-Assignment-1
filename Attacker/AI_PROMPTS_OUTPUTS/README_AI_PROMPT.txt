@@ -3,7 +3,7 @@ Let ^ indicate that I used the text, and ^^ indicate that i didn't include the t
 
 ME: what should i include in the readme of my attacker code? Please create a brief one
 
-GPT Output:
+Chat-GPT Output:
 ^^
 # README — IP Fragment Overlap Attacker
 

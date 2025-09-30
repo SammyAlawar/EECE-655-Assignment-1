@@ -1,6 +1,6 @@
 ME: please write me a short udp server on port 9999 that recevies and prints data it receives
 
-GPT OUTPUT:
+Chat-GPT OUTPUT:
 Here’s a minimal Python UDP server that listens on port 9999, receives data, and prints it:
 
 # udp_server.py

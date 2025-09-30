@@ -1,4 +1,4 @@
-For this project, I used GPT mainly as a coding assistant. I had an extended conversation with it to check for syntax issues, 
+For this project, I used Chat-GPT mainly as a coding assistant. I had an extended conversation with it to check for syntax issues, 
 logic mistakes, and edge cases in my code. This helped me refine my code and gain a deep understanding of Scapy, as well
 as pcap.
 
