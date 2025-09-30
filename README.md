@@ -1,0 +1,1 @@
+This repo contains tools for an IPV4 fragment overlap lab. The `attacker/` folder implements a tool that crafts and sends normal, fragmented, and intentionally overlapping IPv4 fragments; the `defender/` folder contains a detector that inspects incoming fragments. Detailed usage, examples, and safety notes are in `attacker/README.md` and `defender/README.md`.
