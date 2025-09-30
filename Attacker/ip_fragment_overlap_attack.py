@@ -68,7 +68,7 @@ def send_proper_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fra
                 if not pcap_out:
                     send(frag_pkt, verbose=0) # Send fragments if not in pcap mode
             # After the loop, create the final fragment containing whatever bytes remain from start to the end of the payload
-            # Final fragment has flags=0 (i.e., MF not set) to indicate it is the last fragment
+            # Final fragment has flags=0 to indicate it is the last fragment
             final_frag_pkt = IP(dst=packet[IP].dst, proto=packet[IP].proto, ttl=packet[IP].ttl, id=packet[IP].id, flags=0, frag=offset) / Raw(payload_bytes[start: len(payload_bytes)]) 
             out_pkts.append(final_frag_pkt)
             if not pcap_out:
