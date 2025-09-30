@@ -60,13 +60,13 @@ def send_proper_fragments(dst, count, payload, proto=17, ttl=64, ip_id=None, fra
         else:
             while start + fragsize < payload_size: # While we still have at least one full-sized fragment remaining before the last fragment 
             # Proper fragmentation
-                chunk = payload_bytes[start: start + fragsize]
-                frag_pkt = IP(dst=packet[IP].dst, proto=packet[IP].proto, ttl=packet[IP].ttl, id=packet[IP].id, flags="MF", frag=offset) / Raw(chunk) #Set flag to MF to indicate that more fragments are coming
+                chunk = payload_bytes[start: start + fragsize] # Slice the data in the payload from start to start + fragsize to match this fragment's offset.
+                frag_pkt = IP(dst=packet[IP].dst, proto=packet[IP].proto, ttl=packet[IP].ttl, id=packet[IP].id, flags="MF", frag=offset) / Raw(chunk) # Set flag to MF to indicate that more fragments are coming
                 offset += (fragsize // 8) # Increment offset by the number of 8-byte blocks 
                 start += fragsize # Increment current byte index by the size of the fragment
                 out_pkts.append(frag_pkt) # Append fragments to be used in the pcap file
                 if not pcap_out:
-                    send(frag_pkt, verbose=0) #Send fragments if not in pcap mode
+                    send(frag_pkt, verbose=0) # Send fragments if not in pcap mode
             # After the loop, create the final fragment containing whatever bytes remain from start to the end of the payload
             # Final fragment has flags=0 (i.e., MF not set) to indicate it is the last fragment
             final_frag_pkt = IP(dst=packet[IP].dst, proto=packet[IP].proto, ttl=packet[IP].ttl, id=packet[IP].id, flags=0, frag=offset) / Raw(payload_bytes[start: len(payload_bytes)]) 
@@ -172,7 +172,7 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit(0)
     # Chat-GPT added the above if block
-    
+
     if args.pcap_out:
         print(f"[+] PCAP output requested: {args.pcap_out} (no packets will be sent on-wire)")
         
